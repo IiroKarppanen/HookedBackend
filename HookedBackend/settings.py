@@ -36,7 +36,7 @@ SESSION_COOKIE_HTTPONLY = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://hooked-frontend-j78fedjsa-iirokarppanen.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['https://hooked-8scy3fo9l-iirokarppanen.vercel.app/', 'https://vercel.com/', 'localhost']
 
 # Application definition
 
