@@ -7,10 +7,10 @@ import json, os
 
 Movies.objects.all().delete()
 
-path = os.getcwd()
-file = os.path.join(path, "movies.json")
+#path = os.getcwd()
+#file = os.path.join(path, "movies.json")
 
-with open(file, encoding="utf8") as f:
+with open(r"movies.json", encoding="utf8") as f:
     data = json.load(f)
 
 for movie in data:
