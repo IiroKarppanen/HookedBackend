@@ -5,17 +5,17 @@ from .serializers import MovieSerializer
 from .models import Movies
 import json
 
-#Movies.objects.all().delete()
+Movies.objects.all().delete()
 
-#with open(r'C:\Users\iirok\OneDrive\Desktop\Hooked\backend\core\movies.json', encoding="utf8") as f:
-    #data = json.load(f)
+with open(r'C:\Users\iirok\OneDrive\Desktop\Hooked\backend\core\movies.json', encoding="utf8") as f:
+    data = json.load(f)
 
-#for movie in data:
-    #serializer = MovieSerializer(data=movie)
-    #if serializer.is_valid():
-        #print("valid")
+for movie in data:
+    serializer = MovieSerializer(data=movie)
+    if serializer.is_valid():
+        print("valid")
         
-        #serializer.save()
+        serializer.save()
 
     #rint(serializer.errors)
 
