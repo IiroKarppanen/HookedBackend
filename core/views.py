@@ -3,11 +3,14 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import MovieSerializer
 from .models import Movies
-import json
+import json, os
 
 Movies.objects.all().delete()
 
-with open(r'C:\Users\iirok\OneDrive\Desktop\Hooked\backend\core\movies.json', encoding="utf8") as f:
+path = os.getcwd()
+file = os.path.join(path, "movies.json")
+
+with open(file, encoding="utf8") as f:
     data = json.load(f)
 
 for movie in data:
