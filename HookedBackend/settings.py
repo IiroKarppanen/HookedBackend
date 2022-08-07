@@ -34,9 +34,9 @@ CSRF_COOKIE_HTTPONLY = False  # False since we will grab it via universal-cookie
 SESSION_COOKIE_HTTPONLY = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://hooked-frontend-j78fedjsa-iirokarppanen.vercel.app']
+ALLOWED_HOSTS = ['https://hooked-frontend-j78fedjsa-iirokarppanen.vercel.app', 'localhost']
 
 # Application definition
 
