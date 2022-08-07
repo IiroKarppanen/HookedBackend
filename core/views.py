@@ -7,8 +7,13 @@ import json, os
 
 Movies.objects.all().delete()
 
-#path = os.getcwd()
-#file = os.path.join(path, "movies.json")
+path = os.getcwd()
+file = os.path.join(path, "movies.json")
+
+print('path')
+files = [f for f in os.listdir('.') if os.path.isfile(f)]
+for f in files:
+    print(f)
 
 with open(r"movies.json", encoding="utf8") as f:
     data = json.load(f)
