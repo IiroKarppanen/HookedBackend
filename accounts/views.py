@@ -9,6 +9,8 @@ from rest_framework import serializers
 class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
+        print("DATA")
+        print(request.data)
 
         if(len(request.data['name']) < 5):
             raise serializers.ValidationError("USERNAME ERROR")
