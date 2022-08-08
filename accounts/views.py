@@ -10,7 +10,6 @@ class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         print("DATA")
-        print(request.data)
         print(request.data['password'])
 
         if(len(request.data['name']) < 5):
