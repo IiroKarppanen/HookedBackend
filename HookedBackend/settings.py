@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'HookedBackend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': '',
         'HOST': 'ec2-54-228-125-183.eu-west-1.compute.amazonaws.com',
         'PORT': 5432,
         'USER': 'eurdpzzdknjcxl',
