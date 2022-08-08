@@ -87,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HookedBackend.wsgi.application'
 
-
+#django.db.backends.sqlite3
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
