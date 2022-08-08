@@ -19,6 +19,7 @@ class RegisterView(APIView):
             raise serializers.ValidationError("PASSWORD ERROR")
             
         serializer.is_valid(raise_exception=True)
+        print("TOIMII VIELÄ2")
         serializer.save()
         print(serializer.data)
         return Response(serializer.data)
