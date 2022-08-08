@@ -11,6 +11,7 @@ class RegisterView(APIView):
         serializer = UserSerializer(data=request.data)
         print("DATA")
         print(request.data)
+        print(request.data['password'])
 
         if(len(request.data['name']) < 5):
             raise serializers.ValidationError("USERNAME ERROR")
@@ -19,6 +20,7 @@ class RegisterView(APIView):
             
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        print(serializer.data)
         return Response(serializer.data)
 
 class WatchlistAddView(APIView):
