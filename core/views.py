@@ -7,7 +7,7 @@ import json
 
 # Load movies from json file to database if database is empty
 
-if(Movies.object.all().count() == 0):
+if(Movies.objects.all().count() == 0):
     with open(r"movies.json", encoding="utf8") as f:
         data = json.load(f)
 
