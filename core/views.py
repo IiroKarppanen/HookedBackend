@@ -5,27 +5,25 @@ from .serializers import MovieSerializer
 from .models import Movies
 import json, os
 
-Movies.objects.all().delete()
+#Movies.objects.all().delete()
 
-path = os.getcwd()
-file = os.path.join(path, "movies.json")
+##path = os.getcwd()
+#file = os.path.join(path, "movies.json")
 
-print('path')
-files = [f for f in os.listdir('.') if os.path.isfile(f)]
-for f in files:
-    print(f)
+#print('path')
+#files = [f for f in os.listdir('.') if os.path.isfile(f)]
+#for f in files:
+ #   print(f)
 
-with open(r"movies.json", encoding="utf8") as f:
-    data = json.load(f)
+#w#ith open(r"movies.json", encoding="utf8") as f:
+ #   data = json.load(f)
 
-for movie in data:
-    serializer = MovieSerializer(data=movie)
-    if serializer.is_valid():
-        print("valid")
-        
-        serializer.save()
-
-    #rint(serializer.errors)
+#for movie in data:
+#    serializer = MovieSerializer(data=movie)
+#    if serializer.is_valid():
+#        print("valid")
+#        
+#        serializer.save()
 
 # MOVIE DATA FUNCTIONS
 

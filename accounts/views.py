@@ -9,8 +9,6 @@ from rest_framework import serializers
 class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
-        print("DATA")
-        print(request.data['password'])
 
         if(len(request.data['name']) < 5):
             raise serializers.ValidationError("USERNAME ERROR")
@@ -20,14 +18,9 @@ class RegisterView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        users = User.objects.all()
-        user = users.filter(name=request.data['name'])
-        print(user)
-        
         response = Response()
-
         response.data = {
-            'user': user
+            'message': 'success'
         }
         return response
 
