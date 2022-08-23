@@ -6,6 +6,7 @@ from .models import User
 import jwt, datetime, json, ast
 from rest_framework import serializers
 
+
 class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
