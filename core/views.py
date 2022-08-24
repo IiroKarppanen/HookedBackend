@@ -5,18 +5,12 @@ from .serializers import MovieSerializer
 from .models import Movies
 import json
 
-# Load movies from json file to database if database is empty or if json file lenght has changes
+# Load movies from json file to database when deploying
 
-with open(r"movies.json", encoding="utf8") as f:
-    data = json.load(f)
+if(Movies.objects.all().count() == 0):
+    with open(r"movies.json", encoding="utf8") as f:
+        data = json.load(f)
 
-    print("JSON")
-    print(len(data))
-
-    print("DB")
-    print(Movies.objects.all().count())
-
-    if(Movies.objects.all().count() == 0 or Movies.objects.all().count() < len(data)):
         Movies.objects.all().delete()
         for movie in data:
             serializer = MovieSerializer(data=movie)
