@@ -16,10 +16,7 @@ with open(r"movies.json", encoding="utf8") as f:
     print("DB")
     print(Movies.objects.all().count())
 
-    if(Movies.objects.all().count() != len(data)):
-        print("TOIMII")
-
-    if(Movies.objects.all().count() == 0 or Movies.objects.all().count() != len(data)):
+    if(Movies.objects.all().count() == 0 or Movies.objects.all().count() < len(data)):
         Movies.objects.all().delete()
         for movie in data:
             serializer = MovieSerializer(data=movie)
