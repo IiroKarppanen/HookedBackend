@@ -7,17 +7,19 @@ import json
 
 # Load movies from json file to database if database is empty or if json file lenght has changes
 
-with open(r"movies.json", encoding="utf8") as f:
-    data = json.load(f)
-
-    # or Movies.objects.all().count() != len(data))
+try:
     if(Movies.objects.all().count() == 0):
         Movies.objects.all().delete()
         print("UPDATING DB")
-        for movie in data:
-           serializer = MovieSerializer(data=movie)
-           if serializer.is_valid():        
-               serializer.save()
+        with open(r"movies.json", encoding="utf8") as f:
+            data = json.load(f)
+            for movie in data:
+                serializer = MovieSerializer(data=movie)
+                if serializer.is_valid():        
+                    serializer.save()
+except:
+    print("Failed to update DB")
+    pass
 
 # MOVIE DATA FUNCTIONS
 
