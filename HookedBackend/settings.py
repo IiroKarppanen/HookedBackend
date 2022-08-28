@@ -35,7 +35,7 @@ SESSION_COOKIE_HTTPONLY = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['https://hooked-8scy3fo9l-iirokarppanen.vercel.app/', 'https://vercel.com/', 'localhost']
+ALLOWED_HOSTS = ['*']
 #RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')if RENDER_EXTERNAL_HOSTNAME: ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
