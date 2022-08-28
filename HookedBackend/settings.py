@@ -34,7 +34,7 @@ CSRF_COOKIE_HTTPONLY = False  # False since we will grab it via universal-cookie
 SESSION_COOKIE_HTTPONLY = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = ['https://hooked-8scy3fo9l-iirokarppanen.vercel.app/', 'https://vercel.com/', 'localhost']
 
