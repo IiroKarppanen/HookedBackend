@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
 import dj_database_url
 import dotenv
 
@@ -37,6 +36,7 @@ SESSION_COOKIE_HTTPONLY = True
 DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = ['https://hooked-8scy3fo9l-iirokarppanen.vercel.app/', 'https://vercel.com/', 'localhost']
+#RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')if RENDER_EXTERNAL_HOSTNAME: ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -158,7 +158,3 @@ AUTH_USER_MODEL = 'accounts.User'
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 
-
-django_heroku.settings(locals())
-options = DATABASES['default'].get('OPTIONS', {})
-options.pop('sslmode', None)
