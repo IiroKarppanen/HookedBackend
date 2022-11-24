@@ -5,12 +5,12 @@ from .serializers import MovieSerializer
 from .models import Movies
 import json
 
-# Load movies from json file to database if database is empty or if json file lenght has changes
+# Load movies from json file to database if database is empty or if json file lenght has changed
 
 try:
     if(Movies.objects.all().count() == 0):
         Movies.objects.all().delete()
-        print("UPDATING DB")
+        print("Updating DB")
         with open(r"movies.json", encoding="utf8") as f:
             data = json.load(f)
             for movie in data:
@@ -21,7 +21,8 @@ except:
     print("Failed to update DB")
     pass
 
-# MOVIE DATA FUNCTIONS
+
+# POST/GET/DELETE Request functions
 
 @api_view(['GET', 'POST'])
 def movie(request):
