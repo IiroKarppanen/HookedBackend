@@ -33,7 +33,7 @@ CSRF_COOKIE_HTTPONLY = False  # False since we will grab it via universal-cookie
 SESSION_COOKIE_HTTPONLY = True
 
 DEBUG = False
-ALLOWED_HOSTS = ['https://hookedbackend.onrender.com', '127.0.0.1', 'localhost', 'https://hookedtomovies.com', 'https://hookedtomovies.com/']
+ALLOWED_HOSTS = ['hookedtomovies.com']
 
 
 # Application definition
