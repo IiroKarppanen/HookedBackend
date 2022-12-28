@@ -20,6 +20,7 @@ class Movies(models.Model):
     ep_count = models.CharField(max_length=5, blank=True)
     cast = models.CharField(max_length=1000, blank=True)
     image_url = models.CharField(max_length=3000, blank=True)
+    poster_url = models.CharField(max_length=3000, blank=True)
     
     def __str__(self):
         return self.title
