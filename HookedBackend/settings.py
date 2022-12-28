@@ -33,7 +33,8 @@ CSRF_COOKIE_HTTPONLY = False  # False since we will grab it via universal-cookie
 SESSION_COOKIE_HTTPONLY = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+#DEBUG = 'RENDER' not in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 #RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')if RENDER_EXTERNAL_HOSTNAME: ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
@@ -87,25 +88,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HookedBackend.wsgi.application'
 
-#django.db.backends.sqlite3
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-
-#DATABASES = {
-##    'default': {
- #       'ENGINE': 'django.db.backends.postgresql_psycopg2',
- #       'NAME': '',
- #       'HOST': 'ec2-54-228-125-183.eu-west-1.compute.amazonaws.com',
- #       'PORT': 5432,
- #       'USER': 'eurdpzzdknjcxl',
- #       'PASSWORD': 'ee9217bcbe2d038a9684f4395a22391715cfedb5b4899fd9760ebf7598fb13fe'
- #   }
-#}
-# Password validation
-# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -123,11 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -141,15 +121,9 @@ REST_FRAMEWORK = {
 }
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
 STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

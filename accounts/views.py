@@ -7,6 +7,8 @@ import jwt, datetime, json, ast
 from rest_framework import serializers
 
 
+
+
 class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
@@ -133,6 +135,9 @@ class WatchlistDeleteView(APIView):
 
 class LoginView(APIView):
     def post(self, request):
+
+        print("loggin in - " + str(datetime.datetime.utcnow()))
+
         name = request.data['name']
         password = request.data['password']
 
@@ -162,6 +167,9 @@ class LoginView(APIView):
             'watchlist': watchlist,
             'name': name
         }
+
+        print("logged in - " + str(datetime.datetime.utcnow()))
+        
         return response
 
 class UserView(APIView):

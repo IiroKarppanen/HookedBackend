@@ -10,6 +10,14 @@ import json
 with open(r"movies.json", encoding="utf8") as f:
     data = json.load(f)
 
+Movies.objects.all().delete()
+print("Updating DB")
+
+for movie in data:
+    serializer = MovieSerializer(data=movie)
+    if serializer.is_valid():        
+        serializer.save()
+
 try:
     if(Movies.objects.all().count() == 0 or Movies.objects.all().count() != len(data)):
         Movies.objects.all().delete()
