@@ -141,7 +141,9 @@ class LoginView(APIView):
         name = request.data['name']
         password = request.data['password']
 
+        print("finding user - " + str(datetime.datetime.utcnow()))
         user = User.objects.filter(name=name).first()
+        print("user found - " + str(datetime.datetime.utcnow()))
 
         if user is None:
             raise AuthenticationFailed('User not found!')
@@ -149,9 +151,11 @@ class LoginView(APIView):
         if not user.check_password(password):
             raise AuthenticationFailed('Incorrect password!')
 
+        print("preparing payload - " + str(datetime.datetime.utcnow()))
+
         payload = {
             'id': user.id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=1),
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
             'iat': datetime.datetime.utcnow()
         }
 
@@ -160,6 +164,8 @@ class LoginView(APIView):
         response = Response()
 
         watchlist = json.dumps(user.watchlist)
+
+        print("payload complete - " + str(datetime.datetime.utcnow()))
 
         response.set_cookie(key='jwt', value=token, httponly=True)
         response.data = {
