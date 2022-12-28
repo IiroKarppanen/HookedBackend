@@ -136,22 +136,16 @@ class WatchlistDeleteView(APIView):
 class LoginView(APIView):
     def post(self, request):
 
-        print("loggin in - " + str(datetime.datetime.utcnow()))
-
         name = request.data['name']
         password = request.data['password']
 
-        print("finding user - " + str(datetime.datetime.utcnow()))
         user = User.objects.filter(name=name).first()
-        print("user found - " + str(datetime.datetime.utcnow()))
 
         if user is None:
             raise AuthenticationFailed('User not found!')
 
         if not user.check_password(password):
             raise AuthenticationFailed('Incorrect password!')
-
-        print("preparing payload - " + str(datetime.datetime.utcnow()))
 
         payload = {
             'id': user.id,
@@ -165,16 +159,12 @@ class LoginView(APIView):
 
         watchlist = json.dumps(user.watchlist)
 
-        print("payload complete - " + str(datetime.datetime.utcnow()))
-
         response.set_cookie(key='jwt', value=token, httponly=True)
         response.data = {
             'jwt': token,
             'watchlist': watchlist,
             'name': name
         }
-
-        print("logged in - " + str(datetime.datetime.utcnow()))
         
         return response
 
