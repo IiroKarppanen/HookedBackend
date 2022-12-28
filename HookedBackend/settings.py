@@ -33,7 +33,7 @@ CSRF_COOKIE_HTTPONLY = False  # False since we will grab it via universal-cookie
 SESSION_COOKIE_HTTPONLY = True
 
 DEBUG = False
-ALLOWED_HOSTS = ['hookedtomovies.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
