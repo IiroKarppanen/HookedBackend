@@ -32,7 +32,7 @@ SESSION_COOKIE_SAMESITE = 'Strict'
 CSRF_COOKIE_HTTPONLY = False  # False since we will grab it via universal-cookies
 SESSION_COOKIE_HTTPONLY = True
 
-DEBUG = false
+DEBUG = False
 ALLOWED_HOSTS = ['https://hookedbackend.onrender.com', '127.0.0.1', 'localhost', 'https://hookedtomovies.com', 'https://hookedtomovies.com/']
 
 
