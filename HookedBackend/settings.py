@@ -32,11 +32,9 @@ SESSION_COOKIE_SAMESITE = 'Strict'
 CSRF_COOKIE_HTTPONLY = False  # False since we will grab it via universal-cookies
 SESSION_COOKIE_HTTPONLY = True
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = false
+ALLOWED_HOSTS = ['https://hookedbackend.onrender.com', '127.0.0.1', 'localhost', 'https://hookedtomovies.com', 'https://hookedtomovies.com/']
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://hookedtomovies.com']
-#RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')if RENDER_EXTERNAL_HOSTNAME: ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
