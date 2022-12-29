@@ -5,30 +5,6 @@ from .serializers import MovieSerializer
 from .models import Movies
 import json
 
-# Load movies from json file to database if database is empty or if json file lenght has changed
-
-with open(r"movies.json", encoding="utf8") as f:
-    data = json.load(f)
-
-try:
-    for movie in data:
-        serializer = MovieSerializer(data=movie)
-        if serializer.is_valid():        
-            serializer.save()
-                
-    if(Movies.objects.all().count() == 0 or Movies.objects.all().count() != len(data)):
-        Movies.objects.all().delete()
-        print("Updating DB")
-    
-        for movie in data:
-            serializer = MovieSerializer(data=movie)
-            if serializer.is_valid():        
-                serializer.save()
-except:
-    print("Failed to update DB")
-    pass
-
-
 # POST/GET/DELETE Request functions
 
 @api_view(['GET', 'POST'])
